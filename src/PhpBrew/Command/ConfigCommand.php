@@ -5,6 +5,9 @@ use PhpBrew\Config;
 
 class ConfigCommand extends Command
 {
+
+    public function brief() { return 'phpbrew config interface'; }
+
     public function execute($name)
     {
         switch($name) 

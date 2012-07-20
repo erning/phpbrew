@@ -6,10 +6,14 @@ class InitCommand extends \CLIFramework\Command
 {
     public function brief() { return 'initialize phpbrew config file.'; }
 
+    public function options($opts) {
+        $opts->add('h|home:','phpbrew home directory path');
+    }
+
     public function execute()
     {
         // $currentVersion;
-        $root = Config::getPhpbrewRoot();
+        $root = $this->options->home ?: Config::getPhpbrewRoot();
         $buildDir = Config::getBuildDir();
         $buildPrefix = Config::getBuildPrefix();
         // $versionBuildPrefix = Config::getVersionBuildPrefix($version);
